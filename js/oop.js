@@ -14,24 +14,45 @@ var whyOOP = new Question_oop(2, "Why_OOP", "Why use OOP in our programing?", "B
 console.log(oopQuestions);
 
 // jQUery actions for OOP Questions
-// TODO: switch to replaceWith()
+// TODO: Have setup function
+// TODO: Have next Question function
+// TODO: Grab correct object from array
 $(function(){
-    var oopStart = oopQuestions[0];
+    var i = 0;
+    var oopStart = oopQuestions[i];
 
-    $("#OOP").on("click", function(){
+    function populateOOP() {
         $(".start p").replaceWith("<p>OOP Questions</p>");
-        $(".start").append("<p id = question></p><p id = answer display = hidden></p>").append("<a class = nav-link id = OOP_Answer_Show href=#>Show Answer</a>");
+        $(".start").append("<p id = question></p> <p id = answer></p>")
+        .append("<a class = nav-link id = OOP_Answer_Show href=#>Show Answer</a><br>")
+        .append("<a class = nav-link id = Next_Question href=#>Next Question</a>");
         $("#question").text(oopStart.question);
-        
-    });
+
+    }
+
+    var nextQuestion = $(".start").find("#question");
+    console.log(nextQuestion);
+    function populateQuestion(){
+        console.log("Hit");
+        i = (i + 1) % oopQuestions.length;
+        console.log(i);
+        var next = oopQuestions[i];
+        nextQuestion.replaceWith("<p id = question></p>")
+        $("#question").text(next.question);
+        };
+
+    $("#OOP").on("click", populateOOP);
 
 
     $(".start").on("click", "#OOP_Answer_Show", function(){
         $("#answer").text(oopStart.answer).show();
         $("#OOP_Answer_Show").replaceWith("<a class = nav-link id = OOP_Answer_Hide>Hide Answer</a>");
-    })
+    });
+
     $(".start").on("click", "#OOP_Answer_Hide", function(){
         $("#answer").hide();
         $("#OOP_Answer_Hide").replaceWith("<a class = nav-link id = OOP_Answer_Show>Show Answer</a>");
-    })
+    });
+
+    $(".start").on("click", "#Next_Question", populateQuestion);
 });
