@@ -1,3 +1,5 @@
+ //--------------------------------------------- Globals/Questions -------------------------------------------------------//
+
 var oopQuestions = [];
 
 function Question_oop(id, name, question, answer, resource){
@@ -21,20 +23,22 @@ console.log(oopQuestions);
 
 // TODO: Prevent build up of <p> tags when OOP link clicked
 // jQUery actions for OOP Questions
-$(function(){
+ //--------------------------------------------- Functions -------------------------------------------------------//
+ $(function(){
     var i = 0;
     var oopStart = oopQuestions[i];
-
+    // Populates the initial OOP Question screen
     function populateOOP() {
-        $(".start p").replaceWith("<p>OOP Questions</p>");
-        $(".start").append("<p id = question></p> <p id = answer></p>")
-        .append("<a class = nav-link id = OOP_Answer_Show href=#>Show Answer</a><br>")
-        .append("<a class = nav-link id = Next_Question href=#>Next Question</a><br>")
-        .append("<a class = nav-link id = Rando href=#>Random Question</a><br>")
+        $(".start h1").replaceWith("<h1>OOP Questions</h1>");
+        $(".first_p").replaceWith("<p id = question></p> <p id = answer></p>");
+        $(".first_link").replaceWith("<a class = nav-link  id = OOP_Answer_Show href=#>Show Answer</a><br>").addClass("first_link")
+        $(".second_link").replaceWith("<a class = nav-link id = Next_Question href=#>Next Question</a><br>").addClass("second_link")
+        $(".third_link").replaceWith("<a class = nav-link id = Rando href=#>Random Question</a><br>").addClass("third_link");
         $("#question").text(oopStart.question);
         $("#answer").text(oopStart.answer).hide();
     }
 
+    // Populates a new question when Next Question link is clicked. 
     var nextQuestion = $(".start").find("#question");
     var nextAnswer = $(".start").find("#answer");
     function populateNextQuestion(){
@@ -46,6 +50,7 @@ $(function(){
         $("#answer").text(next.answer);
         };
 
+    // Populates a new random question when Random Question link is clicked. 
     function populateRandomQuestion(){
         i = Math.floor(Math.random() * oopQuestions.length);
         console.log(`The value of i is ${i}`)
@@ -57,6 +62,7 @@ $(function(){
 
     }
 
+ //--------------------------------------------- Handlers -------------------------------------------------------//
     $("#OOP").on("click", populateOOP);
 
     $(".start").on("click", "#OOP_Answer_Show", function(){
