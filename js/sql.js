@@ -42,9 +42,9 @@ $(function(){
         $(".second_link").replaceWith("<a class = nav-link id = Next_SQL_Question href=#>Next Question</a>");
         $(".third_link").replaceWith("<a class = nav-link id = Rando_SQL href=#>Random Question</a>");
         $(".start").append("<textarea cols = 50 rows = 5>Enter Your SQL Query Here</textarea>");
-        $("#Answer_Show").addClass("first_link");
-        $("#Next_SQL_Question").addClass("second_link");
-        $("#Rando_SQL").addClass("third_link");    
+        $("#Answer_Show").addClass("first_link btn btn-primary btn-sm");
+        $("#Next_SQL_Question").addClass("second_link btn btn-primary btn-sm");
+        $("#Rando_SQL").addClass("third_link btn btn-primary btn-sm");    
         $("#question").text(sqlStart.question);
         $("#answer").text(sqlStart.answer).hide();
     }
@@ -75,15 +75,15 @@ $(function(){
 
     $("#SQL").on("click", populateSQL);
 
-    $(".start").on("click", "#Answer_Show", function(){
-        $("#answer").show();
-        $("#Answer_Show").replaceWith("<a class = nav-link id = Answer_Hide>Hide Answer</a>");
-    });
+    // $(".start").on("click", "#Answer_Show", function(){
+    //     $("#answer").show();
+    //     $("#Answer_Show").replaceWith("<a class = nav-link id = Answer_Hide>Hide Answer</a>");
+    // });
 
-    $(".start").on("click", "#Answer_Hide", function(){
-        $("#answer").hide();
-        $("#Answer_Hide").replaceWith("<a class = nav-link id = Answer_Show>Show Answer</a>");
-    });
+    // $(".start").on("click", "#Answer_Hide", function(){
+    //     $("#answer").hide();
+    //     $("#Answer_Hide").replaceWith("<a class = nav-link id = Answer_Show>Show Answer</a>");
+    // });
 
     $(".start").on("click", "#Next_SQL_Question", populateNextQuestion);
 

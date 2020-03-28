@@ -11,13 +11,13 @@ function Question_oop(id, name, question, answer, resource){
     oopQuestions.push(this);
 }
 
-var whatIsOOP = new Question_oop(1, "What_Is_OOP", "What does OOP stand for?", "Object Oriented Programing", "N/A");
-var whyOOP = new Question_oop(2, "Why_OOP", "Why use OOP in our programing?", "Better manageability of code base through encapsulation allowing for changing the underlying code but keep the same function", "N/A");
-var principles = new Question_oop(3, "Principles" ,"What are the four main principles of OOP?", "Encapsulation, Abstraction, Polymorphism, Inheritance.", "N/A");
-var encap = new Question_oop(4, "Encapsulation", "Describe Encapsulation", "BLAH BLAH", "N/A");
-var abstract = new Question_oop(5, "Abstraction", "Describe Abstraction", "BLAH BLAH", "N/A");
-var poly = new Question_oop(6, "Polymorphism", "Describe Polymorphism", "BLAH BLAH", "N/A");
-var inheritance = new Question_oop(7, "Inheritance", "Describe Inheritance", "BLAH BLAH", "N/A");
+var whatIsOOP = new Question_oop(1, "QUESTION 1", "What does OOP stand for?", "Object Oriented Programing", "N/A");
+var whyOOP = new Question_oop(2, "QUESTION 2", "Why use OOP in our programing?", "Better manageability of code base through encapsulation allowing for changing the underlying code but keep the same function", "N/A");
+var principles = new Question_oop(3, "QUESTION 3" ,"What are the four main principles of OOP?", "Encapsulation, Abstraction, Polymorphism, Inheritance.", "N/A");
+var encap = new Question_oop(4, "QUESTION 4", "Describe Encapsulation", "BLAH BLAH", "N/A");
+var abstract = new Question_oop(5, "QUESTION 5", "Describe Abstraction", "BLAH BLAH", "N/A");
+var poly = new Question_oop(6, "QUESTION 6", "Describe Polymorphism", "BLAH BLAH", "N/A");
+var inheritance = new Question_oop(7, "QUESTION 7", "Describe Inheritance", "BLAH BLAH", "N/A");
 
 console.log(oopQuestions);
 
@@ -34,9 +34,9 @@ console.log(oopQuestions);
         $(".first_link").replaceWith("<a class = nav-link  id = Answer_Show href=#>Show Answer</a>");
         $(".second_link").replaceWith("<a class = nav-link id = Next_OOP_Question href=#>Next Question</a>");
         $(".third_link").replaceWith("<a class = nav-link id = Rando_OOP href=#>Random Question</a>");
-        $("#Answer_Show").addClass("first_link");
-        $("#Next_OOP_Question").addClass("second_link");
-        $("#Rando_OOP").addClass("third_link");    
+        $("#Answer_Show").addClass("first_link btn btn-primary btn-sm");
+        $("#Next_OOP_Question").addClass("second_link btn btn-primary btn-sm");
+        $("#Rando_OOP").addClass("third_link btn btn-primary btn-sm");    
         $("#question").text(oopStart.question);
         $("#answer").text(oopStart.answer).hide();
     }
@@ -71,11 +71,13 @@ console.log(oopQuestions);
     $(".start").on("click", "#Answer_Show", function(){
         $("#answer").show();
         $("#Answer_Show").replaceWith("<a class = nav-link id = Answer_Hide>Hide Answer</a>");
+        $("#Answer_Hide").addClass("btn btn-primary btn-sm");
     });
 
     $(".start").on("click", "#Answer_Hide", function(){
         $("#answer").hide();
         $("#Answer_Hide").replaceWith("<a class = nav-link id = Answer_Show>Show Answer</a>");
+        $("#Answer_Show").addClass("btn btn-primary btn-sm");
     });
 
     $(".start").on("click", "#Next_OOP_Question", populateNextQuestion);

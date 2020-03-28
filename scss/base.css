@@ -1,0 +1,15 @@
+body {
+  background-image: url(../images/main_background.jpg);
+  background-size: cover;
+}
+body p {
+  color: whitesmoke;
+}
+body h1 {
+  color: whitesmoke;
+}
+body a {
+  margin: 5px;
+}
+
+/*# sourceMappingURL=base.css.map */
