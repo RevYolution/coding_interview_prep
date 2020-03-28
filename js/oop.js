@@ -31,9 +31,12 @@ console.log(oopQuestions);
     function populateOOP() {
         $(".start h1").replaceWith("<h1>OOP Questions</h1>");
         $(".first_p").replaceWith("<p id = question></p> <p id = answer></p>");
-        $(".first_link").replaceWith("<a class = nav-link  id = OOP_Answer_Show href=#>Show Answer</a><br>").addClass("first_link")
-        $(".second_link").replaceWith("<a class = nav-link id = Next_Question href=#>Next Question</a><br>").addClass("second_link")
-        $(".third_link").replaceWith("<a class = nav-link id = Rando href=#>Random Question</a><br>").addClass("third_link");
+        $(".first_link").replaceWith("<a class = nav-link  id = Answer_Show href=#>Show Answer</a>");
+        $(".second_link").replaceWith("<a class = nav-link id = Next_OOP_Question href=#>Next Question</a>");
+        $(".third_link").replaceWith("<a class = nav-link id = Rando_OOP href=#>Random Question</a>");
+        $("#Answer_Show").addClass("first_link");
+        $("#Next_OOP_Question").addClass("second_link");
+        $("#Rando_OOP").addClass("third_link");    
         $("#question").text(oopStart.question);
         $("#answer").text(oopStart.answer).hide();
     }
@@ -65,17 +68,17 @@ console.log(oopQuestions);
  //--------------------------------------------- Handlers -------------------------------------------------------//
     $("#OOP").on("click", populateOOP);
 
-    $(".start").on("click", "#OOP_Answer_Show", function(){
+    $(".start").on("click", "#Answer_Show", function(){
         $("#answer").show();
-        $("#OOP_Answer_Show").replaceWith("<a class = nav-link id = OOP_Answer_Hide>Hide Answer</a>");
+        $("#Answer_Show").replaceWith("<a class = nav-link id = Answer_Hide>Hide Answer</a>");
     });
 
-    $(".start").on("click", "#OOP_Answer_Hide", function(){
+    $(".start").on("click", "#Answer_Hide", function(){
         $("#answer").hide();
-        $("#OOP_Answer_Hide").replaceWith("<a class = nav-link id = OOP_Answer_Show>Show Answer</a>");
+        $("#Answer_Hide").replaceWith("<a class = nav-link id = Answer_Show>Show Answer</a>");
     });
 
-    $(".start").on("click", "#Next_Question", populateNextQuestion);
+    $(".start").on("click", "#Next_OOP_Question", populateNextQuestion);
 
-    $(".start").on("click", "#Rando", populateRandomQuestion);
+    $(".start").on("click", "#Rando_OOP", populateRandomQuestion);
 });
