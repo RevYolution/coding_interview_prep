@@ -2,12 +2,22 @@ body {
     background-image: url(../images/main_background.jpg);
     background-size: cover;
     p {
-        color: whitesmoke;
+        color:burlywood;
     }
     h1{
-        color: whitesmoke;
+        color:burlywood;
     }
     a {
         margin: 5px;
+    }
+    .card {
+        background-color: hsla(24, 0%, 38%, 0.75);
+        margin-left: 25%;
+        margin-right: 25%;
+        margin-top: 10%;
+        margin-bottom: 10%;
+        padding: 5%;
+        // border: solid black;
+        // border-radius: 5px;
     }
 }

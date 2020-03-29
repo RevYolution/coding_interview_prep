@@ -30,23 +30,28 @@ console.log(oopQuestions);
     // Populates the initial OOP Question screen
     function populateOOP() {
         $(".start h1").replaceWith("<h1>OOP Questions</h1>");
+        $(".question_number").replaceWith("<p id = question_number></p>");
         $(".first_p").replaceWith("<p id = question></p> <p id = answer></p>");
         $(".first_link").replaceWith("<a class = nav-link  id = Answer_Show href=#>Show Answer</a>");
         $(".second_link").replaceWith("<a class = nav-link id = Next_OOP_Question href=#>Next Question</a>");
         $(".third_link").replaceWith("<a class = nav-link id = Rando_OOP href=#>Random Question</a>");
         $("#Answer_Show").addClass("first_link btn btn-primary btn-sm");
         $("#Next_OOP_Question").addClass("second_link btn btn-primary btn-sm");
-        $("#Rando_OOP").addClass("third_link btn btn-primary btn-sm");    
+        $("#Rando_OOP").addClass("third_link btn btn-primary btn-sm");
+        $("#question_number").text(oopStart.name);    
         $("#question").text(oopStart.question);
         $("#answer").text(oopStart.answer).hide();
     }
 
     // Populates a new question when Next Question link is clicked. 
+    var questionNumber = $(".start").find("#question_number");
     var nextQuestion = $(".start").find("#question");
     var nextAnswer = $(".start").find("#answer");
     function populateNextQuestion(){
         i = (i + 1) % oopQuestions.length;
         var next = oopQuestions[i];
+        questionNumber.replaceWith("<p id = question_number></p>")
+        $("#question_number").text(next.name);
         nextQuestion.replaceWith("<p id = question></p>")
         $("#question").text(next.question);
         nextAnswer.replaceWith("<p id = answer></p>")
@@ -58,6 +63,8 @@ console.log(oopQuestions);
         i = Math.floor(Math.random() * oopQuestions.length);
         console.log(`The value of i is ${i}`)
         var randomQuestion = oopQuestions[i];
+        questionNumber.replaceWith("<p id = question_number></p>")
+        $("#question_number").text(randomQuestion.name);
         nextQuestion.replaceWith("<p id = question></p>")
         $("#question").text(randomQuestion.question);
         nextAnswer.replaceWith("<p id = answer></p>")

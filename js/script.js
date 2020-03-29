@@ -2,6 +2,7 @@ $(function(){
     $(".start").append("<div class = card width: 18rem></div>");
     $(".card").append("<div class = card-body></div>");
     $(".card-body").append("<h1>Welcome to the Coding interview quiz site</h1>")
+    .append("<p class = question_number></p>")
     .append("<p class = first_p>Please select a question category from above to start you quiz</p>")
     .append("<a class = nav-link id = basic href=#>Basic Questions</a>")
     .append("<a class = nav-link  id = Next_Question href=#>Next Question</a>")

@@ -3,13 +3,21 @@ body {
   background-size: cover;
 }
 body p {
-  color: whitesmoke;
+  color: burlywood;
 }
 body h1 {
-  color: whitesmoke;
+  color: burlywood;
 }
 body a {
   margin: 5px;
+}
+body .card {
+  background-color: rgba(97, 97, 97, 0.75);
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-top: 10%;
+  margin-bottom: 10%;
+  padding: 5%;
 }
 
 /*# sourceMappingURL=base.css.map */
